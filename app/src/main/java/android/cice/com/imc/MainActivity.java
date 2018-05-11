@@ -1,5 +1,6 @@
 package android.cice.com.imc;
 
+import android.cice.com.imc.listeners.MostrarListaListener;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText altura = findViewById(R.id.altura);
         final EditText peso = findViewById(R.id.peso);
         Button calcula = findViewById(R.id.calcula);
+        Button mostrarLista = findViewById(R.id.mostrar_lista);
         final TextView resultado = findViewById(R.id.resultado);
 
         calcula.setOnClickListener(new View.OnClickListener() {
@@ -40,5 +42,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        MostrarListaListener mostrarListaListener = new MostrarListaListener(this);
+        mostrarLista.setOnClickListener(mostrarListaListener);
     }
 }
