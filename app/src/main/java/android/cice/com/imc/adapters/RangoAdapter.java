@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RangoAdapter extends BaseAdapter {
@@ -19,9 +20,10 @@ public class RangoAdapter extends BaseAdapter {
     };
 
     private String [] definiciones = {
-            "Definicion 1", "Def 2", "Def3", "Def4", "Def5"
+            "Delgado", "En forma", "Normal", "Obeso", "Muy obeso"
     };
 
+    private int [] imagesId = {R.mipmap.icon1, R.mipmap.icon2, R.mipmap.icon4, R.mipmap.icon4, R.mipmap.icon1};
     public RangoAdapter(Context context){
         this.context = context;
     }
@@ -59,10 +61,11 @@ public class RangoAdapter extends BaseAdapter {
 
        TextView texto1 = (TextView) view.findViewById(R.id.texto1);
        TextView texto2 = (TextView) view.findViewById(R.id.texto2);
+       ImageView imageView = (ImageView) view.findViewById(R.id.imagen);
 
        texto1.setText(definiciones[position]);
        texto2.setText(rangos[position]);
-
+       imageView.setImageResource(imagesId[position]);
 
        return view;
     }
